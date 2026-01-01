@@ -1,8 +1,9 @@
-import { defineConfig } from 'sanity';
-import { schemaTypes } from './schemaTypes';
+import { defineConfig } from 'sanity'
+import { structureTool } from 'sanity/structure'
+import { schemaTypes } from './schemaTypes'
 
-const projectId = process.env.SANITY_STUDIO_PROJECT_ID || '';
-const dataset = process.env.SANITY_STUDIO_DATASET || 'production';
+const projectId = process.env.SANITY_STUDIO_PROJECT_ID || ''
+const dataset = process.env.SANITY_STUDIO_DATASET || 'production'
 
 export default defineConfig({
   name: 'clockpunk-studio',
@@ -11,8 +12,9 @@ export default defineConfig({
   projectId,
   dataset,
 
+  plugins: [structureTool()],
 
   schema: {
     types: schemaTypes,
   },
-});
+})
